@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext", // Change this line
+    "moduleResolution": "NodeNext",
+    "paths": {
+      "@/*": ["./src/*"] // Keep this line as is
+    }
+  }
+}

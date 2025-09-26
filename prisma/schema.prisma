@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Habit {
+  id      String    @id @default(uuid())
+  name    String
+  records Record[]
+  createdAt DateTime @default(now())
+}
+
+model Record {
+  id      String    @id @default(uuid())
+  date    String
+  habit   Habit     @relation(fields: [habitId], references: [id], onDelete: Cascade) // Add this part
+  habitId String
+}
+
